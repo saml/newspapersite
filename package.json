@@ -1,0 +1,29 @@
+{
+    "name": "newspapersite",
+    "version": "0.0.1",
+    "author": "saml",
+    "description": "a newspaper site",
+    "scripts": {
+        "start": "node --harmony ./app.js",
+        "test": "vows --spec --isolate"
+    },
+    "main": "./lib/newspapersite",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/saml/newspapersite.git"
+    },
+    "keywords": [
+        "newspaper",
+        "cms",
+        "blog",
+        "http"
+    ],
+    "dependencies": {
+    },
+    "devDependencies": {
+    },
+    "license": "MIT",
+    "engines": {
+        "node": ">=0.10"
+    }
+}
