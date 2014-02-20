@@ -1,0 +1,54 @@
+
+Creating indexes:
+
+[source,cypher]
+----
+CREATE CONSTRAINT ON (b:Blog) ASSERT b.name IS UNIQUE
+----
+
+[source,cypher]
+----
+CREATE CONSTRAINT ON (a:Article) ASSERT a.path IS UNIQUE
+----
+
+[source,cypher]
+----
+CREATE CONSTRAINT ON (u:User) ASSERT u.slug IS UNIQUE
+----
+
+[source,cypher]
+----
+CREATE CONSTRAINT ON (i:Image) ASSERT i.path IS UNIQUE
+----
+
+[source,cypher]
+----
+CREATE CONSTRAINT ON (t:Tag) ASSERT t.slug IS UNIQUE
+----
+
+
+To view indexes:
+
+[source,cypher]
+----
+:schema ls
+----
+
+Insert an article:
+
+[source,cypher]
+----
+CREATE
+    (tech:Blog {name:'Tangled'}),
+    (hello:Article {path:'hellow-world',content:'<h1>hello world</h1><p>I\'m good.</p>'}),
+    (joe:User {slug:'joejobbs',name:'Joe Jobbs'}),
+    (cat:Image {path:'MvP4nRp.jpg',caption:'a cat'}),
+    (daily:Tag {slug: 'daily', name: 'Daily'}),
+    (hello)-[:IS_A]->(tech),
+    (hello)-[:TAGGED]->(daily),
+    (hello)-[:USES_IMG]->(cat),
+    (joe)-[:WROTE]->hello
+
+----
+
+
